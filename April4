@@ -35,3 +35,20 @@ def num_jewels_in_stones(j, s)
 end
 
 p num_jewels_in_stones("aA", "aAAbbbb")
+
+def custom_sort_string(s, t)
+    hasht = Hash.new()
+    hasht.default = 0
+    t.each_char do |ch|
+        hasht[ch] += 1
+    end
+    result = ""
+    s.each_char do |ch|
+        if hasht.has_key?(ch)
+            hasht[ch].times do
+                result.concat(ch)
+            end
+        end
+    end
+    result.concat(t.delete(result))
+end
