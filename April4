@@ -21,3 +21,17 @@ def two_sum(nums, target)
     end
   end
 end
+
+def num_jewels_in_stones(j, s)
+    hsh = Hash.new()
+    j.each_char do |ch|
+        hsh[ch] = true
+    end
+    count = 0
+    s.each_char do |ch|
+        count += 1 if hsh.key?(ch)
+    end
+    count
+end
+
+p num_jewels_in_stones("aA", "aAAbbbb")
